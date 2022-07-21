@@ -9,10 +9,12 @@ const productos= [
     {producto1:"Zapatillas",precio:147,id:5},
     {producto1:"Gorra",precio:175,id:6},
 ]
-const min=1
-const max=6
 
-const numero = Math.floor(Math.random()*(max-min+1)+min);
+const max=productos.length
+
+function numero(max) {
+    return Math.floor(Math.random() * max);
+  }
 
 app.get("/", (req,res)=>{
     res.send({mensaje:"Hola mundo"})
@@ -24,7 +26,7 @@ app.get("/productos", (req,res)=>{
 
 app.get("/productoRandom", (req,res)=>{
 
-    res.send(productos[numero])
+    res.send(productos[numero(max)])
 
 })
 
